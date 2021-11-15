@@ -4,7 +4,7 @@ CXX=`$(LLVM_CONFIG) --bindir`/clang
 CXXFLAGS=`$(LLVM_CONFIG) --cppflags` -fPIC -fno-rtti
 LDFLAGS=`$(LLVM_CONFIG) --ldflags`
 
-all: hw1.so Test hello_pass.so Demo.so hm.so
+all: hw1.so Test hello_pass.so Demo.so
 
 hw1.o: hw1.cpp
 	$(CXX) -c hw1.cpp $(CXXFLAGS) -o hw1.o
@@ -23,12 +23,6 @@ Demo.o: Demo.cpp
 
 Demo.so: Demo.o
 	$(CXX) -shared Demo.o $(LDFLAGS) -fPIC -o Demo.so
-
-hm.o: hm.cpp
-	$(CXX) -c hm.cpp $(CXXFLAGS) -o hm.o
-
-hm.so: hm.o
-	$(CXX) -shared hm.o $(LDFLAGS) -fPIC -o hm.so
 
 Test: test1.c test2.c test3.c
 	$(CXX) -S -fno-discard-value-names -emit-llvm test1.c -o test1.ll

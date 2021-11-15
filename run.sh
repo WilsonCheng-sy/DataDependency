@@ -13,6 +13,30 @@ if [ $# -eq 0 ]; then
     echo "(EX. './run.sh dependence' for HW1)"
     echo ""
 
+elif [ $1 == "dependence" ]; then 
+    echo "--- HW1 Pass Run ---"
+    echo "--- build hw1.so ---"
+    make hw1.so
+    echo ""
+    echo "--- Run testcase ---"
+    echo ""
+    echo "[testcase1]"
+    echo ""
+    opt -load ./hw1.so -dependence test1.ll -o /dev/null
+    echo ""
+    echo ""
+    echo "[testcase2]"
+    echo ""
+    opt -load ./hw1.so -dependence test2.ll -o /dev/null
+    echo ""
+    echo ""
+    echo "[testcase3]"
+    echo ""
+    opt -load ./hw1.so -dependence test3.ll -o /dev/null
+    echo ""
+    echo ""
+    echo "--- End testcase ---"
+
 elif [ $1 == "hello" ]; then 
     echo "--- hello Pass Run ---"
     echo "--- build hello_pass.so ---"
@@ -39,28 +63,4 @@ elif [ $1 == "demo" ]; then
     opt -load ./Demo.so -Demo test3.ll -o /dev/null
     echo "--- End testcase ---"
 
-
-elif [ $1 == "dependence" ]; then 
-    echo "--- HW1 Pass Run ---"
-    echo "--- build hw1.so ---"
-    make hw1.so
-    echo ""
-    echo "--- Run testcase ---"
-    echo ""
-    echo "[testcase1]"
-    echo ""
-    opt -load ./hw1.so -dependence test1.ll -o /dev/null
-    echo ""
-    echo ""
-    echo "[testcase2]"
-    echo ""
-    opt -load ./hw1.so -dependence test2.ll -o /dev/null
-    echo ""
-    echo ""
-    echo "[testcase3]"
-    echo ""
-    opt -load ./hw1.so -dependence test3.ll -o /dev/null
-    echo ""
-    echo ""
-    echo "--- End testcase ---"
 fi
