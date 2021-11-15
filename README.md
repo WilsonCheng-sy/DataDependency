@@ -1,3 +1,3 @@
 # DataDependency
-
-# ./run.sh dependence
+## Run the code
+./run.sh dependence
